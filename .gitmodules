@@ -1,3 +1,6 @@
 [submodule "libft/printf_bonus"]
 	path = libft/printf_bonus
 	url = git@github.com:D0ge42/printf_bonus.git
+[submodule "libft/libft/ft_printf"]
+	path = libft/libft/ft_printf
+	url = git@github.com:D0ge42/printf_bonus.git

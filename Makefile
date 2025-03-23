@@ -56,7 +56,7 @@ RM = rm -rf
 AR = ar crs
 
 # ft_printf configuration
-FT_PRINTF_DIR = /nfs/homes/lonulli/CUBE3D/libft/ft_printf
+FT_PRINTF_DIR = ft_printf
 FT_PRINTF_LIB = $(FT_PRINTF_DIR)/libftprintf.a
 
 # RULES
@@ -64,7 +64,7 @@ FT_PRINTF_LIB = $(FT_PRINTF_DIR)/libftprintf.a
 $(NAME): $(OBJS) $(FT_PRINTF_LIB)
 	$(AR) $@ $^
 
-$(FT_PRINTF_LIB): # Compile ft_printf
+$(FT_PRINTF_LIB): 
 	make -C $(FT_PRINTF_DIR)
 
 %.o: %.c
@@ -86,4 +86,3 @@ bonus: $(OBJS) $(BONUS_OBJS) $(FT_PRINTF_LIB)
 	$(AR) $(NAME) $(OBJS) $(BONUS_OBJS)
 
 .PHONY: all clean fclean re bonus
-

@@ -38,34 +38,15 @@ SRC = ft_atoi.c    \
 
 OBJS = $(SRC:.c=.o)
 
-BONUS = ft_lstadd_back.c  \
-        ft_lstadd_front.c \
-        ft_lstclear.c     \
-        ft_lstdelone.c    \
-        ft_lstiter.c      \
-        ft_lstlast.c      \
-        ft_lstmap.c       \
-        ft_lstnew.c       \
-        ft_lstsize.c
-
-BONUS_OBJS = $(BONUS:.c=.o)
-
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 RM = rm -rf
 AR = ar crs
 
-# ft_printf configuration
-FT_PRINTF_DIR = /nfs/homes/lonulli/CUBE3D/libft/ft_printf
-FT_PRINTF_LIB = $(FT_PRINTF_DIR)/libftprintf.a
-
 # RULES
 
-$(NAME): $(OBJS) $(FT_PRINTF_LIB)
+$(NAME): $(OBJS)
 	$(AR) $@ $^
-
-$(FT_PRINTF_LIB): # Compile ft_printf
-	make -C $(FT_PRINTF_DIR)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -73,17 +54,12 @@ $(FT_PRINTF_LIB): # Compile ft_printf
 all: $(NAME)
 
 clean:
-	$(RM) $(OBJS) $(BONUS_OBJS)
-	make -C $(FT_PRINTF_DIR) clean
+	$(RM) $(OBJS)
 
 fclean: clean
-	$(RM) $(NAME) $(FT_PRINTF_LIB)
-	make -C $(FT_PRINTF_DIR) fclean
+	$(RM) $(NAME)
 
 re: fclean all
 
-bonus: $(OBJS) $(BONUS_OBJS) $(FT_PRINTF_LIB)
-	$(AR) $(NAME) $(OBJS) $(BONUS_OBJS)
-
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re
 

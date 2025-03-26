@@ -25,9 +25,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ret = result;
 	if (!result)
 		return (NULL);
-	while (*s1)
+	while (s1 && *s1)
 		*result++ = *s1++;
-	while (*s2)
+	while (s2 && *s2)
 		*result++ = *s2++;
 	*result = '\0';
 	return (ret);

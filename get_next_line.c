@@ -11,9 +11,22 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 #ifndef BUFFER_SIZE
 #define BUFFER_SIZE 1
 #endif
+
+static int ft_strchr_gnl(char *str, char c)
+{
+	int i = 0;
+	while(str[i])
+	{
+		if(str[i] == c)
+			return 1;
+		i++;
+	}
+	return 0;
+}
 
 char *extract_line(char *stash)
 {
@@ -77,7 +90,7 @@ char *get_next_line(int fd)
   stash[BUFFER_SIZE] = '\0';
   while(1)
   {
-    if (ft_strchr(stash,'\n'))
+    if (ft_strchr_gnl(stash,'\n'))
     {
       char *line_to_join = extract_line(stash);
       line = ft_strjoin(line, line_to_join);

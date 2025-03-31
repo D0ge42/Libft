@@ -39,7 +39,7 @@ SRC = ft_atoi.c    \
 OBJS = $(SRC:.c=.o)
 
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -gdwarf-4 -g
 RM = rm -rf
 AR = ar crs
 
